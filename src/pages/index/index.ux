@@ -137,8 +137,8 @@ export default {
 }
 
 .countdown-swiper {
-	width: 266px;
-	height: 266px;
+	width: 256px;
+	height: 256px;
 }
 
 .countdown-page {
@@ -148,7 +148,7 @@ export default {
 	height: 256px;
 	border-radius: 20px;
 	align-items: center;
-	justify-items: center;
+	justify-content: center;
 }
 
 #empty {

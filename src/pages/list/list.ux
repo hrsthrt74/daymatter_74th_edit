@@ -148,7 +148,7 @@ export default {
 scroll {
 	display: flex;
 	flex-direction: column;
-	width: 240px;
+	width: 238px;
 	height: 300px;
 	position: relative;
 	top: 8px;
