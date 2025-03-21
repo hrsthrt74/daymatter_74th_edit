@@ -18,8 +18,8 @@
     <br>
     <img src="images/pic1.png" width="100px" />
 <img src="images/pic2.png" width="100px" />
-<img src="images/pic1.png" width="100px" />
-<img src="images/pic2.png" width="100px" />
+<img src="images/pic3.png" width="100px" />
+<img src="images/pic4.png" width="100px" />
 </p>
 
 

@@ -1,18 +1,29 @@
 <template>
-  <div class="input-date-page">
-    <div class="header">
-      <text class="header-time">编辑日期</text>
-    </div>
-    <div class="mmdd">
-      <picker id="year-picker" type="text" range="{{year_list}}" selected="{{`${year-1970}`}}" @change="onYearChanged">
-      </picker>
-      <picker id="month-picker" type="text" range="{{month_list}}" selected="{{`${month-1}`}}" @change="onMonthChanged">
-      </picker>
-      <picker id="day-picker" type="text" range="{{day_list}}" selected="{{`${day-1}`}}" @change="onDayChanged"></picker>
-    </div>
-    <div style="width: 1px; height: 56px"></div>
-    <img src="/common/Check_A.png" @click="saveDate" style="position: absolute; left: 117px; bottom: 18px" />
-  </div>
+	<div class="input-date-page">
+		<div class="header">
+			<text class="header-time">编辑日期</text>
+		</div>
+		<div style="
+				position: absolute;
+				top: 24px;
+				justify-content: center;
+				align-items: center;
+			">
+			<text style="font-size: 32px; color: white; font-weight: bold">
+				{{ time }}
+			</text>
+		</div>
+		<div class="mmdd" style="margin-top:36px;">
+			<picker style="width: 120px" id="year-picker" type="text" range="{{year_list}}" selected="{{`${year-1970}`}}"
+				@change="onYearChanged"></picker>
+			<picker id="month-picker" type="text" range="{{month_list}}" selected="{{`${month-1}`}}"
+				@change="onMonthChanged"></picker>
+			<picker id="day-picker" type="text" range="{{day_list}}" selected="{{`${day-1}`}}" @change="onDayChanged">
+			</picker>
+		</div>
+		<div style="width: 1px; height: 56px"></div>
+		<img src="/common/Check_A.png" @click="saveDate" style="position: absolute; left: 117px; bottom: 18px" />
+	</div>
 </template>
 
 <script>
@@ -194,12 +205,20 @@ export default {
 		year: "1970",
 		month: "1",
 		day: "1",
+
+		time: "",
 	},
 	protected: {
 		date: "2024-1-1",
 		callback_uri: "",
 	},
 	onReady() {
+		// 写入页面顶部时间
+		const date = new Date();
+		const hour = date.getHours().toString().padStart(2, "0");
+		const minute = date.getMinutes().toString().padStart(2, "0");
+		this.time = hour + ":" + minute;
+
 		[this.year, this.month, this.day] = this.date.split("-");
 		this.updateDayPicker(Number(this.month));
 	},
@@ -255,7 +274,7 @@ export default {
 <style>
 .header {
 	position: absolute;
-	top: 18px;
+	top: 64px;
 }
 
 .header-time {
@@ -284,9 +303,9 @@ export default {
 picker {
 	width: 80px;
 	height: 300px;
-	font-size: 22px;
+	font-size: 30px;
 	font-weight: bold;
-	selected-font-size: 30px;
+	selected-font-size: 48px;
 }
 
 .save-button {

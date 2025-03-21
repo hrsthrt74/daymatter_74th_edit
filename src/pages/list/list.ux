@@ -2,6 +2,16 @@
 	<div class="list-page">
 		<text class="header-time">{{ count }} 个倒数日</text>
 		<img src="/common/back.png" @click="routeBack" style="position: absolute; left: 6px; top: 6px" />
+		<div style="
+				position: absolute;
+				top: 24px;
+				justify-content: center;
+				align-items: center;
+			">
+			<text style="font-size: 32px; color: white; font-weight: bold">
+				{{ time }}
+			</text>
+		</div>
 		<scroll scroll-y="true" bounces="true">
 			<div for="{{events}}">
 				<div class="countdown-card" style="background-color: {{$item.already ? '#f78803' : '#3184d0'}}"
@@ -38,6 +48,7 @@ export default {
 	private: {
 		count: 0,
 		events: [],
+		time: "",
 	},
 
 	onBackPress() {
@@ -52,6 +63,12 @@ export default {
 	},
 
 	onReady() {
+		// 写入页面顶部时间
+		const date = new Date();
+		const hour = date.getHours().toString().padStart(2, "0");
+		const minute = date.getMinutes().toString().padStart(2, "0");
+		this.time = hour + ":" + minute;
+
 		storage.get({
 			key: "events",
 			default: "[]",

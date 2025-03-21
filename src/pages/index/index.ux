@@ -2,6 +2,16 @@
 	<div class="index-page">
 		<img src="/common/back.png" @click="routeList" style="position: absolute; left: 6px; top: 6px" />
 		<img src="/common/Info_B.png" @click="info" style="position: absolute; right: 6px; top: 6px" />
+		<div id="header" style="
+				position: absolute;
+				top: 24px;
+				justify-content: center;
+				align-items: center;
+			">
+			<text style="font-size: 32px; color: white; font-weight: bold">
+				{{ time }}
+			</text>
+		</div>
 		<swiper if="{{!is_no_event}}" indicator="false" class="countdown-swiper">
 			<div for="{{events}}">
 				<div class="countdown-page" style="background-color: {{$item.already ? '#f78803' : '#3184d0'}}">
@@ -43,7 +53,7 @@ const dateDiff = (date1) => {
 
 export default {
 	private: {
-		time: "07:21",
+		time: "",
 		events: [
 			{ name: "暂无事件...", days: "无", date: "2024-07-21", already: false },
 		],
@@ -56,6 +66,12 @@ export default {
 	},
 
 	onReady() {
+		// 写入页面顶部时间
+		const date = new Date();
+		const hour = date.getHours().toString().padStart(2, "0");
+		const minute = date.getMinutes().toString().padStart(2, "0");
+		this.time = hour + ":" + minute;
+
 		// 清除缓存
 		router.clear();
 

@@ -5,26 +5,40 @@
 <template>
 	<div class="new-page">
 		<img src="/common/back.png" @click="routeBack" style="position: absolute; left: 6px; top: 6px" />
-		<img if="{{!(this.extend == 'true')}}" src="/common/Delete_W.png" @click="deleteEvent" style="position: absolute; left: 117px; bottom: 18px" />
-		<div class="line">
+		<img if="{{!(this.extend == 'true')}}" src="/common/Delete_W.png" @click="deleteEvent"
+			style="position: absolute; left: 117px; bottom: 18px" />
+		<div style="
+				position: absolute;
+				top: 24px;
+				justify-content: center;
+				align-items: center;
+			">
+			<text style="font-size: 32px; color: white; font-weight: bold">
+				{{ time }}
+			</text>
+		</div>
+		<div class="line" style="margin-bottom: 10px">
 			<text static style="margin-left: 14px">事件名称</text>
 			<div class="input-line" @click="editEventName">
 				<text>{{ event_name }}</text>
 			</div>
 		</div>
-		<div style="width: 1px; height: 10px"></div>
-		<div class="line" show="{{hide}}">
+		<div class="line" show="{{hide}}" style="margin-bottom: 14px">
 			<text static style="margin-left: 14px">目标日</text>
 			<div class="input-line" @click="editDate">
 				<text static>{{ date }}</text>
 			</div>
 		</div>
-		<div style="width: 1px; height: 14px"></div>
-		<div class="line button">
+		<div class="line button" style="margin-bottom: 48px">
 			<text static>在首页显示</text>
-			<img style="right:0;bottom:0;position: absolute;height: 50px; width: 71px" @click="changeDisplayOnIndex" src="/common/{{on_index}}.png" />
+			<img style="
+					right: 0;
+					bottom: 0;
+					position: absolute;
+					height: 50px;
+					width: 71px;
+				" @click="changeDisplayOnIndex" src="/common/{{on_index}}.png" />
 		</div>
-		<div style="width: 1px; height: 48px"></div>
 		<img static src="/common/Check_B.png" @click="saveEvent" style="position: absolute; right: 6px; top: 6px" />
 		<input-method hide="{{hide}}" keyboardtype.static="{{keyboardtype}}" maxlength="5"
 			vibratemode.static="{{vibratemode}}" screentype.static="{{screentype}}" @visibility-change="visibilityChange"
@@ -53,6 +67,8 @@ export default {
 		keyboardtype: "QWERTY",
 		vibratemode: "short",
 		screentype: "rect",
+
+		time: "",
 	},
 
 	visibilityChange(evt) {
@@ -85,6 +101,12 @@ export default {
 	},
 
 	onReady() {
+		// 写入页面顶部时间
+		const date = new Date();
+		const hour = date.getHours().toString().padStart(2, "0");
+		const minute = date.getMinutes().toString().padStart(2, "0");
+		this.time = hour + ":" + minute;
+
 		const isInputCallback = !(this.input_callback == "");
 		const isDateCallback = !(this.date_callback == "");
 		if (!isInputCallback && !isDateCallback) {
