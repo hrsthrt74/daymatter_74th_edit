@@ -1,8 +1,8 @@
 {
   "package": "com.yzf.daymatter",
   "name": "倒数日",
-  "versionName": "1.1",
-  "versionCode": 10200,
+  "versionName": "1.1 74thEdit",
+  "versionCode": 10250,
   "minPlatformVersion": 1000,
   "icon": "/common/logo.png",
   "deviceTypeList": [
@@ -29,7 +29,7 @@
     }
   ],
   "config": {
-    "logLevel": "log",
+    "logLevel": "off",
     "designWidth": 336
   },
   "router": {
