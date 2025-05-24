@@ -1,6 +1,10 @@
-# 小米手环 倒数日 快应用
+# 小米手环 9 Pro 倒数日 快应用
 
 基于 [chiyuki0325项目](https://github.com/chiyuki0325/miband9-countdown/) 二改
+ 
+hrsthrt74 三改，改动了部分布局，具体见下方预览
+
+[原项目](https://github.com/sf-yuzifu/daymatter)
 
 ## 改动内容
 1. 使用无源流沙的UI界面和NEORUAA的输入法组件
@@ -14,13 +18,5 @@
 2. 有概率的卡退（至少我没有）
 
 ## 预览
-<p align="center">
-    <br>
-    <img src="images/pic1.png" width="100px" />
-<img src="images/pic2.png" width="100px" />
-<img src="images/pic3.png" width="100px" />
-<img src="images/pic4.png" width="100px" />
-</p>
-
-
-
+![9pro-2025-05-24-19-42-46](https://github.com/user-attachments/assets/3957383e-c7e3-42af-8901-ea2cef5c9e7c)
+![9pro-2025-05-24-19-43-02](https://github.com/user-attachments/assets/ae34b8e8-db66-4afc-8b6b-301e6202351f)
