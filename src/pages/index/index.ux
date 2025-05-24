@@ -2,6 +2,7 @@
 	<div class="index-page">
 		<img src="/common/back.png" @click="routeList" style="position: absolute; left: 6px; top: 6px" />
 		<img src="/common/Info_B.png" @click="info" style="position: absolute; right: 6px; top: 6px" />
+		<!-- 时间部分 -->
 		<div id="header" style="
 				position: absolute;
 				top: 24px;
@@ -23,7 +24,7 @@
 						<text class="countdown-days">{{ $item.days }}</text>
 					</div>
 					<div class="countdown-date-bg">
-						<text class="countdown-date">目标日：{{ $item.date }}</text>
+						<text class="countdown-date">{{ $item.date }}</text>
 					</div>
 				</div>
 			</div>
@@ -33,7 +34,7 @@
 			<div style="width: 1px; height: 10px"></div>
 			<text id="emp">空空如也</text>
 		</div>
-		<img src="/common/More_B.png" @click="routeMore" style="position: absolute; left: 117px; bottom: 18px" />
+		<img src="/common/More_B.png" @click="routeMore" style="position: absolute; left: 117px; bottom: 3px" />
 	</div>
 </template>
 
@@ -153,16 +154,17 @@ export default {
 }
 
 .countdown-swiper {
-	width: 256px;
-	height: 256px;
+	width: 290px;
+	height: 290px;
 }
 
+/* 卡片 */
 .countdown-page {
 	display: flex;
 	flex-direction: column;
-	width: 256px;
-	height: 256px;
-	border-radius: 20px;
+	width: 290px;
+	height: 290px;
+	border-radius: 50px;
 	align-items: center;
 	justify-content: center;
 }
@@ -179,14 +181,16 @@ export default {
 	margin-top: 12px;
 }
 
+/* 标题 */
 .countdown-event {
-	font-size: 20px;
+	font-size: 28px;
 	text-align: center;
 	width: 256px;
 	position: relative;
 	font-weight: bold;
 }
 
+/* 标题的高度 */
 .countdown-event-bg {
 	height: 66px;
 	margin: unset;
@@ -213,26 +217,30 @@ export default {
 	color: black;
 	justify-content: center;
 	align-items: center;
-	border-radius: 20px;
+	border-radius: 50px;
 }
 
+/* 大卡片最底下的白矩形 */
 .countdown-date-bg2 {
 	position: absolute;
 	background-color: #ffffff;
 	width: 100%;
-	height: 60px;
+	height: 90px;
 	bottom: 0;
-	border-radius: 20px;
+	border-radius: 50px;
 }
+
+/* 日期 */
 .countdown-date {
 	text-align: center;
-	font-size: 16px;
+	font-size: 22px;
 	color: rgba(0, 0, 0, 0.6);
 }
 
+/* 倒计时的时间 */
 .countdown-days {
 	text-align: center;
-	font-size: 88px;
+	font-size: 114px;
 	font-weight: bold;
 }
 </style>
